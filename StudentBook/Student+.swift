@@ -12,6 +12,13 @@ extension Student {
         return request
     }
 
+    static func request(predicate: NSPredicate) -> NSFetchRequest<Student> {
+        let request = NSFetchRequest<Student>(entityName: "Student")
+        request.sortDescriptors = [NSSortDescriptor(key: "ident_", ascending: true)]
+        request.predicate = predicate
+        return request
+    }
+
     // MARK: - deal with data in Core Data
 
     var ident: Int {
@@ -41,6 +48,4 @@ extension Student {
 
         try? context.save()
     }
-    
-    
 }
