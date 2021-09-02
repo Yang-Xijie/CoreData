@@ -4,7 +4,7 @@ import CoreData
 import Foundation
 
 extension Student {
-    // MARK: - request to get data from Core Data
+    // MARK: - request to get data from Core Data (use in UI)
 
     static var request_allStudent: NSFetchRequest<Student> {
         let request = NSFetchRequest<Student>(entityName: "Student")
@@ -28,4 +28,19 @@ extension Student {
         get { email_ }
         set { email_ = newValue }
     }
+
+    // MARK: - analysis on Core Data
+
+    // MARK: - operate on Core Data
+
+    static func create(studentInfo: StudentInfo, context: NSManagedObjectContext) {
+        let newStudent = Student(context: context)
+        newStudent.name = studentInfo.name
+        newStudent.ident = studentInfo.ident
+        newStudent.email = studentInfo.email
+
+        try? context.save()
+    }
+    
+    
 }

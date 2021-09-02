@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		480069CE26E0977F00A90C24 /* Student+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480069CD26E0977F00A90C24 /* Student+.swift */; };
+		485E542F26E0A0230077A8B4 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E542E26E0A0230077A8B4 /* StudentInfo.swift */; };
 		48FC1E7826E0938F009D0F08 /* StudentBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FC1E7726E0938F009D0F08 /* StudentBookApp.swift */; };
 		48FC1E7A26E0938F009D0F08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FC1E7926E0938F009D0F08 /* ContentView.swift */; };
 		48FC1E7C26E09391009D0F08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48FC1E7B26E09391009D0F08 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		480069CD26E0977F00A90C24 /* Student+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Student+.swift"; sourceTree = "<group>"; };
+		485E542E26E0A0230077A8B4 /* StudentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		48FC1E7426E0938F009D0F08 /* StudentBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FC1E7726E0938F009D0F08 /* StudentBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentBookApp.swift; sourceTree = "<group>"; };
 		48FC1E7926E0938F009D0F08 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				48FC1E7726E0938F009D0F08 /* StudentBookApp.swift */,
 				48FC1E7926E0938F009D0F08 /* ContentView.swift */,
 				480069CD26E0977F00A90C24 /* Student+.swift */,
+				485E542E26E0A0230077A8B4 /* StudentInfo.swift */,
 				48FC1E8026E09391009D0F08 /* Persistence.swift */,
 				48FC1E8226E09391009D0F08 /* StudentBook.xcdatamodeld */,
 				48FC1E7B26E09391009D0F08 /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 				48FC1E8126E09391009D0F08 /* Persistence.swift in Sources */,
 				48FC1E7A26E0938F009D0F08 /* ContentView.swift in Sources */,
 				48FC1E8426E09391009D0F08 /* StudentBook.xcdatamodeld in Sources */,
+				485E542F26E0A0230077A8B4 /* StudentInfo.swift in Sources */,
 				480069CE26E0977F00A90C24 /* Student+.swift in Sources */,
 				48FC1E7826E0938F009D0F08 /* StudentBookApp.swift in Sources */,
 			);
