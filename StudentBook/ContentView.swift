@@ -1,41 +1,40 @@
 // ContentView.swift
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.managedObjectContext) private var context
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Student.ident_, ascending: true)],
+//        animation: .default)
+    @FetchRequest(fetchRequest: Student.request_allStudent)
+    private var students: FetchedResults<Student>
 
     var body: some View {
+        Text("StudentList").font(.system(.title))
+        
         List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            ForEach(students) { student in
+                StudentView(name: student.name, ident: student.ident, email: student.email)
             }
             .onDelete(perform: deleteItems)
         }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
+        
+        Button(action: addItem) {
+            Label("Add Student", systemImage: "plus")
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newStudent = Student(context: context)
+            newStudent.name_ = "yxj"
+            newStudent.ident_ = 1
 
             do {
-                try viewContext.save()
+                try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -47,10 +46,10 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { students[$0] }.forEach(context.delete)
 
             do {
-                try viewContext.save()
+                try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -61,15 +60,20 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+struct StudentView: View {
+    var name: String
+    var ident: Int
+    var email: String?
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    var body: some View {
+        HStack {
+            Text(name).font(.system(.title))
+            VStack {
+                Text("\(ident)")
+                if let email = email {
+                    Text(email)
+                }
+            }
+        }
     }
 }
